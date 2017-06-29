@@ -1,0 +1,8 @@
+# the root queries
+type Query {
+    userQueries: UserQueries
+}
+
+type Mutation {
+    userMutations: UserMutations
+}

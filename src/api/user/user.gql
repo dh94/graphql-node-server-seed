@@ -1,0 +1,22 @@
+
+# a simple user type
+type User {
+    id: ID!,
+    firstName: String,
+    lastName: String
+}
+
+# queries on user
+type UserQueries {
+    # find a user with a given id
+    user(id: ID!): User
+}
+
+# user mutations
+type UserMutations {
+    # create a new user and insert it into the db
+    createUser(
+        firstName: String!
+        lastName: String!
+    ): User
+}
