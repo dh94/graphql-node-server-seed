@@ -8,6 +8,7 @@
             "name": "Launch & Debug",
             "type": "node",
             "request": "launch",
+            "protocol": "inspector",
             "program": "${workspaceRoot}/src/server.js",
             "stopOnEntry": false,
             "args": [],
@@ -20,7 +21,7 @@
             },
             "sourceMaps": true,
             "outFiles": [
-                "${workspaceRoot}/dist/**.js"
+                "${workspaceRoot}/dist/**/**.js"
             ]
         }
     ]
