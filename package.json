@@ -7,7 +7,7 @@
     "start": "nodemon src/server.js --exec babel-node",
     "build": "babel src -d dist --source-maps --copy-files",
     "serve": "node dist/server.js",
-    "test": "mocha --compilers js:babel-register"
+    "test": "mocha --recursive --compilers js:babel-register"
   },
   "author": "daniel jackobsen",
   "license": "ISC",
@@ -33,8 +33,10 @@
     "babel-preset-es2016": "^6.24.1",
     "babel-preset-es2017": "^6.24.1",
     "babel-register": "^6.24.1",
-    "nodemon": "^1.11.0",
     "chai": "^4.0.2",
-    "mocha": "^3.4.2"
+    "mocha": "^3.4.2",
+    "nodemon": "^1.11.0",
+    "proxyquire": "^1.8.0",
+    "sequelize-mock": "^0.8.1"
   }
 }

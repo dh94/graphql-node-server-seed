@@ -1,7 +1,7 @@
 
 # a simple user type
 type User {
-    id: ID!,
+    id: ID,
     firstName: String,
     lastName: String
 }
@@ -10,6 +10,8 @@ type User {
 type UserQueries {
     # find a user with a given id
     user(id: ID!): User
+
+    users(ids: [ID]): [User]
 }
 
 # user mutations

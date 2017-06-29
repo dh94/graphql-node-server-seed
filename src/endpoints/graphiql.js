@@ -1,4 +1,4 @@
-import { graphqlExpress, graphiqlExpress } from 'graphql-server-express';
+import { graphiqlExpress } from 'graphql-server-express';
 import { Router } from 'express'
 
 const router = Router();
