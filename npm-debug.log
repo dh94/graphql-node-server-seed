@@ -1,0 +1,49 @@
+0 info it worked if it ends with ok
+1 verbose cli [ 'C:\\Program Files\\nodejs\\node.exe',
+1 verbose cli   'C:\\Program Files\\nodejs\\node_modules\\npm\\bin\\npm-cli.js',
+1 verbose cli   'run',
+1 verbose cli   'test-debug' ]
+2 info using npm@3.10.10
+3 info using node@v6.10.1
+4 verbose run-script [ 'pretest-debug', 'test-debug', 'posttest-debug' ]
+5 info lifecycle graphql-node-seed@1.0.0~pretest-debug: graphql-node-seed@1.0.0
+6 silly lifecycle graphql-node-seed@1.0.0~pretest-debug: no script for pretest-debug, continuing
+7 info lifecycle graphql-node-seed@1.0.0~test-debug: graphql-node-seed@1.0.0
+8 verbose lifecycle graphql-node-seed@1.0.0~test-debug: unsafe-perm in lifecycle true
+9 verbose lifecycle graphql-node-seed@1.0.0~test-debug: PATH: C:\Program Files\nodejs\node_modules\npm\bin\node-gyp-bin;C:\parlament\graphql-node-server-seed\node_modules\.bin;C:\ProgramData\Oracle\Java\javapath;C:\Program Files\Common Files\Microsoft Shared\Windows Live;C:\Program Files (x86)\Common Files\Microsoft Shared\Windows Live;C:\Program Files (x86)\Intel\iCLS Client\;C:\Program Files\Intel\iCLS Client\;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;C:\Program Files\Intel\Intel(R) Management Engine Components\DAL;C:\Program Files\Intel\Intel(R) Management Engine Components\IPT;C:\Program Files (x86)\Intel\Intel(R) Management Engine Components\DAL;C:\Program Files (x86)\Intel\Intel(R) Management Engine Components\IPT;C:\Program Files (x86)\Common Files\Lenovo;C:\Program Files (x86)\Common Files\lenovo\easyplussdk\bin;C:\ProgramData\Lenovo\ReadyApps;C:\Program Files (x86)\Windows Live\Shared;C:\Program Files\nodejs\;C:\Program Files\Git\cmd;"C:\Users\ofek9\.gradle\wrapper\dists\gradle-3.1-all\ejgglywf033yp6s4x8ahmgm74\gradle-3.1\bin\gradle.bat";C:\Program Files (x86)\Yarn\bin;;C:\Program Files (x86)\Microsoft VS Code\bin;C:\Users\ofek9\AppData\Roaming\npm;C:\Users\ofek9\AppData\Local\Yarn\bin\;C:\Python27
+10 verbose lifecycle graphql-node-seed@1.0.0~test-debug: CWD: C:\parlament\graphql-node-server-seed
+11 silly lifecycle graphql-node-seed@1.0.0~test-debug: Args: [ '/d /s /c',
+11 silly lifecycle   'mocha --inspect --recursive --compilers js:babel-register' ]
+12 silly lifecycle graphql-node-seed@1.0.0~test-debug: Returned: code: 1  signal: null
+13 info lifecycle graphql-node-seed@1.0.0~test-debug: Failed to exec test-debug script
+14 verbose stack Error: graphql-node-seed@1.0.0 test-debug: `mocha --inspect --recursive --compilers js:babel-register`
+14 verbose stack Exit status 1
+14 verbose stack     at EventEmitter.<anonymous> (C:\Program Files\nodejs\node_modules\npm\lib\utils\lifecycle.js:255:16)
+14 verbose stack     at emitTwo (events.js:106:13)
+14 verbose stack     at EventEmitter.emit (events.js:191:7)
+14 verbose stack     at ChildProcess.<anonymous> (C:\Program Files\nodejs\node_modules\npm\lib\utils\spawn.js:40:14)
+14 verbose stack     at emitTwo (events.js:106:13)
+14 verbose stack     at ChildProcess.emit (events.js:191:7)
+14 verbose stack     at maybeClose (internal/child_process.js:886:16)
+14 verbose stack     at Process.ChildProcess._handle.onexit (internal/child_process.js:226:5)
+15 verbose pkgid graphql-node-seed@1.0.0
+16 verbose cwd C:\parlament\graphql-node-server-seed
+17 error Windows_NT 6.1.7601
+18 error argv "C:\\Program Files\\nodejs\\node.exe" "C:\\Program Files\\nodejs\\node_modules\\npm\\bin\\npm-cli.js" "run" "test-debug"
+19 error node v6.10.1
+20 error npm  v3.10.10
+21 error code ELIFECYCLE
+22 error graphql-node-seed@1.0.0 test-debug: `mocha --inspect --recursive --compilers js:babel-register`
+22 error Exit status 1
+23 error Failed at the graphql-node-seed@1.0.0 test-debug script 'mocha --inspect --recursive --compilers js:babel-register'.
+23 error Make sure you have the latest version of node.js and npm installed.
+23 error If you do, this is most likely a problem with the graphql-node-seed package,
+23 error not with npm itself.
+23 error Tell the author that this fails on your system:
+23 error     mocha --inspect --recursive --compilers js:babel-register
+23 error You can get information on how to open an issue for this project with:
+23 error     npm bugs graphql-node-seed
+23 error Or if that isn't available, you can get their info via:
+23 error     npm owner ls graphql-node-seed
+23 error There is likely additional logging output above.
+24 verbose exit [ 1, true ]

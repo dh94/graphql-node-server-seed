@@ -7,9 +7,9 @@ export const resolvers = {
     UserQueries: {
         users: (root, args, { users }) => {
             return users.findUsers(args)
-                .then(selectedUsers => {
-                    return selectedUsers;
-                })
+        },
+        user: (root, args, { users }) => {
+            return users.findUsers({ ids: [args.id]})
         }
     },
     UserMutations: {

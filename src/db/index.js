@@ -3,7 +3,7 @@ import SequelizeMock from 'sequelize-mock';
 import winston from 'winston';
 
 let sequelize;
-if (process.env.NODE_ENV !== 'production') {
+if (process.env.NODE_ENV === 'production') {
     sequelize = new Sequelize("postgres://postgres:1234@localhost:5432/postgres")
     sequelize.authenticate()
         .then(() => {
