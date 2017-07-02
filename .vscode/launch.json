@@ -9,6 +9,7 @@
             "request": "launch",
             "name": "Mocha Tests",
             "program": "${workspaceRoot}/node_modules/mocha/bin/_mocha",
+            "preLaunchTask": "testEnv",
             "args": [
                 "-u",
                 "tdd",
@@ -17,6 +18,8 @@
                 "--colors",
                 "--recursive",
                 "--inspect",
+                "--plugins",
+                "rewire",
                 "--compilers",
                 "js:babel-register",
                 "${workspaceRoot}/test"

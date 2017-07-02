@@ -1,29 +1,32 @@
 import dbMock from '../../../src/db/index';
-import proxyquire from 'proxyquire';
+import { UserConnector, __RewireAPI__ as ConnectorRewireAPI } from '../../../src/api/user/user.connector.js';
+import { Users } from '../../../src/api/user/user.model.js';
 import { expect } from 'chai';
 
-let UserMock = dbMock.define('user', {
-    firstName: "daniel",
-    lastName: "hallel"
-});
-
-let userConnector = proxyquire('../../../src/api/user/user.connector.js', {
-    '../../db/models/User.js': UserMock
-})
-let userModel = proxyquire('../../../src/api/user/user.model.js', {
-    './user.connector.js': userConnector
-});
-
-let users = new userModel.Users();
+let UserMock = dbMock.define('user');
 
 describe('User model', () => {
+    let userService;
+
+    before(() => {
+        ConnectorRewireAPI.__Rewire__('User', UserMock);
+    })
+
+    beforeEach(() => {
+        // so results wont be cached in dataloader
+        userService = new Users();
+    })
+
+    after(() => {
+        ConnectorRewireAPI.__ResetDependency__('User');
+    })
 
     afterEach(() => {
         UserMock.$clearQueue();
     })
 
     it('should create new user', () => {
-        return users.createUser({ firstName: "daniel", lastName: "jackobsen"})
+        return userService.createUser({ firstName: "daniel", lastName: "jackobsen"})
             .then(user => {
                 expect(user).to.exist;
                 expect(user.firstName).to.eq('daniel');
@@ -33,7 +36,7 @@ describe('User model', () => {
 
     describe('findUsers', () => {
         it('should find many ids - all exist', () => {
-            let findIds = [1, 2, 3];
+            let findIds = ['1', '2', '3'];
             
             UserMock.$queueResult(findIds.map(id => {
                 return UserMock.build({
@@ -43,7 +46,7 @@ describe('User model', () => {
                 })
             }));
 
-            return users.findUsers({ ids: findIds})
+            return userService.findUsers({ ids: findIds})
                 .then(_users => {
                     expect(_users).to.have.lengthOf(3);
 
@@ -54,20 +57,22 @@ describe('User model', () => {
         })
 
         it('should find only one id', () => {
-            let findIds = [1];
+            let findIds = ['1'];
             
             UserMock.$queueResult(findIds.map(id => {
                 return UserMock.build({
                     id, 
-                    firstName: "daniel",
-                    lastName: "jackobsen"
+                    firstName: "sup",
+                    lastName: "boy"
                 })
             }));
 
-            return users.findUsers({ ids: findIds})
+            return userService.findUsers({ ids: findIds})
                 .then(users => {
                     expect(users).to.have.lengthOf(1);
                     expect(users[0]).to.exist;
+                    expect(users[0].firstName).to.eq('sup');
+                    expect(users[0].lastName).to.eq('boy');
                 })
         })
     })
