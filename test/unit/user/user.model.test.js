@@ -7,8 +7,11 @@ let UserMock = dbMock.define('user', {
     lastName: "hallel"
 });
 
-var userModel = proxyquire('../../../src/api/user/user.model.js', {
+let userConnector = proxyquire('../../../src/api/user/user.connector.js', {
     '../../db/models/User.js': UserMock
+})
+let userModel = proxyquire('../../../src/api/user/user.model.js', {
+    './user.connector.js': userConnector
 });
 
 let users = new userModel.Users();
@@ -41,10 +44,10 @@ describe('User model', () => {
             }));
 
             return users.findUsers({ ids: findIds})
-                .then(users => {
-                    expect(users).to.have.lengthOf(3);
+                .then(_users => {
+                    expect(_users).to.have.lengthOf(3);
 
-                    for (let user of users) {
+                    for (let user of _users) {
                         expect(user).to.exist;
                     }
                 })
