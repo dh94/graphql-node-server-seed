@@ -5,16 +5,17 @@ function calcConfig() {
 
     }
     switch(process.env.NODE_ENV){
-        case 'test':
-        case 'development':
-            return merge(commonConfig, {
-                dbUrl: "postgres://postgres:1234@localhost:5432/postgres"
-            });
         case 'production':
             return merge(commonConfig, {
 
             });
+        case 'test':
+        case 'development':
+        default:
+            return merge(commonConfig, {
+                dbUrl: "postgres://postgres:1234@localhost:5432/postgres"
+            });
     }
 };
 
-export let config = calcConfig();
+export default calcConfig()

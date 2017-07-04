@@ -1,11 +1,10 @@
-import dbMock from '../../../src/db/index';
-import { UserConnector, __RewireAPI__ as ConnectorRewireAPI } from '../../../src/api/user/user.connector.js';
+import SequelizeMock from 'sequelize-mock';
+import { __RewireAPI__ as ConnectorRewireAPI } from '../../../src/api/user/user.connector.js';
 import { Users } from '../../../src/api/user/user.model.js';
 import { expect } from 'chai';
 
-let UserMock = dbMock.define('user');
-
 describe('User model', () => {
+    let UserMock = new SequelizeMock().define('user');
     let userService;
 
     before(() => {

@@ -1,31 +1,22 @@
 import request from 'supertest-as-promised';
 import app from '../../../src/app.js';
 import { expect } from 'chai';
-import dbMock from '../../../src/db/index';
-import { __RewireAPI__ as ConnectorRewireAPI } from '../../../src/api/user/user.connector.js';
+import User from '../../../src/db/models/User.js';
 
 describe('User query test', () => {
-    let UserMock = dbMock.define('user', {
-        id: "2",
-        firstName: "daniel",
-        lastName: "hallel"
-    });
-
     before(() => {
-        ConnectorRewireAPI.__Rewire__('User', UserMock);
+        return User.create({
+            id: 2,
+            firstName: "daniel",
+            lastName: "jackobsen"
+        })
     })
-
+    
     after(() => {
-        ConnectorRewireAPI.__ResetDependency__('User');
+        return User.destroy({ where: {} })
     })
 
     it('should find user', () => {
-        UserMock.$queueResult([UserMock.build({
-            id: 2, 
-            firstName: "daniel",
-            lastName: "jackobsen"
-        })]);
-
         return request(app)
             .post('/graphql')
             .send({
