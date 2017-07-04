@@ -9,7 +9,6 @@ export class UserConnector {
     }
 
     __getUsers(userIds) {
-        console.log(userIds)
         return User.findAll({
             where: {
                 id: {

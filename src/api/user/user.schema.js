@@ -11,6 +11,9 @@ export const resolvers = {
         },
         user: (root, args, { users }) => {
             return users.findUsers({ ids: [args.id]})
+                .then(users => {
+                    return users[0]
+                })
         }
     },
     UserMutations: {

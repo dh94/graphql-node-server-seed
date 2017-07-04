@@ -21,6 +21,8 @@
                 "rewire",
                 "--compilers",
                 "js:babel-register",
+                "--require",
+                "babel-polyfill",
                 "${workspaceRoot}/test"
             ],
             "protocol": "inspector",
