@@ -77,6 +77,7 @@ npm scripts
 │   │   ├── graphql-subscriptions
 │   │   └── index.js           
 |   ├──  app.js          <- server setup
+|   ├──  config.js       <- config file with configurations per environment
 │   └──  server.js       <- server startup   
 ├── test                       
 │   ├── integration         <- tests that depened on more than one unit to work (almost no mocks)
