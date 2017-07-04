@@ -4,6 +4,7 @@ import { Router } from 'express'
 const router = Router();
 router.use('/graphiql', graphiqlExpress({
     endpointURL: '/graphql',
+    subscriptionsEndpoint: 'ws://localhost:5000/graphql-subscription'
   })
 );
 

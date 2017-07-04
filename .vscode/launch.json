@@ -9,7 +9,6 @@
             "request": "launch",
             "name": "Mocha Tests",
             "program": "${workspaceRoot}/node_modules/mocha/bin/_mocha",
-            "preLaunchTask": "testEnv",
             "args": [
                 "-u",
                 "tdd",

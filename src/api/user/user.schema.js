@@ -1,5 +1,6 @@
 import { readFileSync } from 'fs';
-import { createUser,  } from './user.model.js';
+import { pubsub } from '../subscriptions/pubsub.js';
+import { USER_CREATED } from '../subscriptions/topics.js';
 
 export const schema = [readFileSync(__dirname + '/user.gql', 'utf8')]
 
@@ -14,7 +15,11 @@ export const resolvers = {
     },
     UserMutations: {
         createUser: (root, args, { users }) => {
-            return users.createUser(args);
+            return users.createUser(args)
+                .then(user => {
+                    pubsub.publish(USER_CREATED, user);
+                    return user;
+                })
         }
     }
 }
