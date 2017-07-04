@@ -39,7 +39,7 @@ export function renderGraphiQL(data) {
   <script src="//${staticPath}/graphiql-resources/fetch@0.9.0.min.js"></script>
   <script src="//${staticPath}/graphiql-resources/react@15.6.1.min.js"></script>
   <script src="//${staticPath}/graphiql-resources/react-dom@15.6.1.min.js"></script>
-  <script src="//${staticPath}/graphiql-resources/graphiql@0.11.2.min.js"></script>
+  <script src="//${staticPath}/graphiql-resources/graphiql@0.10.1.min.js"></script>
   ${usingSubscriptions ?
     `<script src="//${staticPath}/graphiql-resources/subscriptions-transport-ws@0.7.0.js"></script>` +
     `<script src="//${staticPath}/graphiql-resources/graphiql-subscriptions-fetcher-client@0.0.2.js"></script>`
