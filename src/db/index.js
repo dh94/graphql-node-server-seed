@@ -1,10 +1,11 @@
 import Sequelize from 'sequelize';
 import SequelizeMock from 'sequelize-mock';
 import winston from 'winston';
+import { config } from '../config.js';
 
 let sequelize;
-if (process.env.NODE_ENV === 'production') {
-    sequelize = new Sequelize("postgres://postgres:1234@localhost:5432/postgres")
+if (process.env.NODE_ENV !== 'test') {
+    sequelize = new Sequelize(config.dbUrl)
     sequelize.authenticate()
         .then(() => {
             winston.info('connected to localdb');
