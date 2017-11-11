@@ -1,0 +1,24 @@
+{
+    "files.exclude": {
+        "**/.git": true,
+        "**/.output": true,
+        "**/dist": true,
+        "**/.nyc_output": true,
+        "**/coverage": true,
+        "**/.history": true
+    },
+	"search.exclude": {
+        "**/.history": true,
+        "**/dist": true
+    },
+    "typescript.referencesCodeLens.enabled": true,
+    "mocha.enabled": true,
+    "mocha.sourceDir": "./",
+    "mocha.outputDir": ".output",
+    "mocha.debugTrace": "true",
+    "mocha.options": {
+        "--timeout": "2000"
+    },
+    "mocha.setupFile": "./.output/test/bootstrap.test.js",
+    "mocha.compilerScript": "test:build"
+}

@@ -1,0 +1,35 @@
+{
+	"compilerOptions": {
+		"module": "commonjs",
+		"target": "es6",
+		"moduleResolution": "node",
+		"sourceMap": true,
+		"noUnusedLocals": true,
+		"noUnusedParameters": false,
+		"experimentalDecorators": true,
+		"outDir": "dist",
+		"baseUrl": ".",
+		"typeRoots": [
+			"typings",
+			"typings/*"
+		],
+		"lib": [
+			"es2015", "esnext.asynciterable"
+		],
+        "paths": {
+            "*": [
+                "node_modules/*",
+                "typings/*"
+            ]
+        }
+	},
+    "include": [
+		"src/*",
+		"src/**/*",
+		"typings/*"
+	],
+	"exclude": [
+        "node_modules/**",
+        "test/**"
+    ]
+}

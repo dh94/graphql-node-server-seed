@@ -1,4 +1,6 @@
-/dist
-/node_modules
-/coverage
-/.nyc_output
+.history/
+.nyc_output/
+.output/
+coverage/
+node_modules/
+dist/
